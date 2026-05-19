@@ -8,13 +8,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Noto+Serif+KR:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=4" />
 </head>
 <body>
   <button id="lang-toggle" class="lang-toggle" aria-label="Toggle language">
     <span class="lang-option" data-lang="ko">KO</span>
     <span class="lang-divider">/</span>
     <span class="lang-option active" data-lang="en">EN</span>
+  </button>
+
+  <audio id="bgm" src="audio/as-we-go.mp3" loop preload="auto"></audio>
+  <button id="music-toggle" class="music-toggle paused" aria-label="Toggle background music" aria-pressed="false">
+    <span class="eq" aria-hidden="true">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </span>
   </button>
 
   <main class="invitation">
@@ -193,6 +203,6 @@
 
   </main>
 
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>

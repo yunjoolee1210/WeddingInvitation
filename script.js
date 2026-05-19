@@ -237,6 +237,50 @@ document.querySelectorAll(".copy-btn").forEach((btn) => {
 });
 
 // ============================================================
+// Background music toggle
+// ============================================================
+const bgm = document.getElementById("bgm");
+const musicBtn = document.getElementById("music-toggle");
+
+function setMusicState(playing) {
+  musicBtn.classList.toggle("paused", !playing);
+  musicBtn.setAttribute("aria-pressed", playing ? "true" : "false");
+}
+
+musicBtn.addEventListener("click", async () => {
+  if (bgm.paused) {
+    try {
+      await bgm.play();
+      setMusicState(true);
+    } catch {
+      setMusicState(false);
+    }
+  } else {
+    bgm.pause();
+    setMusicState(false);
+  }
+});
+bgm.addEventListener("play", () => setMusicState(true));
+bgm.addEventListener("pause", () => setMusicState(false));
+
+// Try autoplay; most mobile browsers block until user interaction, in which
+// case the button stays in "paused" state until tapped.
+(async () => {
+  try {
+    await bgm.play();
+  } catch {
+    setMusicState(false);
+    const wake = async () => {
+      try { await bgm.play(); setMusicState(true); } catch {}
+      document.removeEventListener("touchstart", wake);
+      document.removeEventListener("click", wake);
+    };
+    document.addEventListener("touchstart", wake, { once: true });
+    document.addEventListener("click", wake, { once: true });
+  }
+})();
+
+// ============================================================
 // Initial language paint
 // ============================================================
 applyLanguage(currentLang);
