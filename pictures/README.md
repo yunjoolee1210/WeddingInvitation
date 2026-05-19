@@ -1,10 +1,7 @@
 # pictures
 
-Drop your wedding photos here. The page expects these filenames by default
-(missing files are hidden gracefully):
-
 - `main.jpg` — full-bleed hero photo at the top of the page
-- `photo1.jpg` … `photo6.jpg` — gallery photos
+- `gallery1.jpg` (wide), `gallery2.jpg`, `gallery3.jpg` — gallery photos
 
-To use different filenames or add more photos, edit the `WEDDING.gallery`
+To add/replace photos, drop new files here and update the `WEDDING.gallery`
 array at the top of `script.js`.

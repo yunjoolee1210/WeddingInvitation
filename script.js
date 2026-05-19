@@ -9,12 +9,9 @@ const WEDDING = {
   // The first photo (`main.jpg`) is also used as the hero background (set in index.html).
   // `wide: true` makes a photo span two columns in the gallery grid.
   gallery: [
-    { src: "pictures/photo1.jpg", wide: true },
-    { src: "pictures/photo2.jpg" },
-    { src: "pictures/photo3.jpg" },
-    { src: "pictures/photo4.jpg" },
-    { src: "pictures/photo5.jpg" },
-    { src: "pictures/photo6.jpg", wide: true },
+    { src: "pictures/gallery1.jpg", wide: true },
+    { src: "pictures/gallery2.jpg" },
+    { src: "pictures/gallery3.jpg" },
   ],
 };
 
