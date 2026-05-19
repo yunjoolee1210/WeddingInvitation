@@ -12,7 +12,6 @@ const WEDDING = {
     { src: "pictures/gallery1.jpg", wide: true },
     { src: "pictures/gallery2.jpg" },
     { src: "pictures/gallery3.jpg" },
-    { src: "pictures/gallery4.jpg", wide: true },
   ],
 };
 
@@ -42,7 +41,25 @@ const I18N = {
     "venue.name": "The Grand Ballroom, Seoul Plaza Hotel",
     "venue.address": "119 Sogong-ro, Jung-gu, Seoul",
     "venue.hall": "5F · Crystal Hall",
-    "thanks.body": "Thank you for being part of our story.",
+    "venue.map": "View on Google Maps",
+    "account.title": "Wedding Gift",
+    "account.intro": "Your presence is our greatest gift. If you wish to send your blessing in this way, we gratefully accept.",
+    "account.groom_side": "Groom's side",
+    "account.bride_side": "Bride's side",
+    "account.groom_name": "Kim Woo-bin",
+    "account.groom_rel": "Groom",
+    "account.groom_bank": "Kookmin Bank",
+    "account.groom_father": "Mr. Kim",
+    "account.groom_father_rel": "Father of the Groom",
+    "account.groom_father_bank": "Shinhan Bank",
+    "account.bride_name": "Shin Min-a",
+    "account.bride_rel": "Bride",
+    "account.bride_bank": "Woori Bank",
+    "account.bride_father": "Mr. Shin",
+    "account.bride_father_rel": "Father of the Bride",
+    "account.bride_father_bank": "Hana Bank",
+    "account.copy": "Copy",
+    "account.copied": "Copied",
   },
   ko: {
     "hero.eyebrow": "저희 결혼합니다",
@@ -66,7 +83,25 @@ const I18N = {
     "venue.name": "서울 플라자 호텔 그랜드볼룸",
     "venue.address": "서울특별시 중구 소공로 119",
     "venue.hall": "5층 · 크리스탈홀",
-    "thanks.body": "함께해 주셔서 진심으로 감사드립니다.",
+    "venue.map": "구글 지도에서 보기",
+    "account.title": "마 음 전 하 실 곳",
+    "account.intro": "참석만으로도 큰 축복이지만, 마음 전하실 곳을 안내드립니다.",
+    "account.groom_side": "신랑측",
+    "account.bride_side": "신부측",
+    "account.groom_name": "김우빈",
+    "account.groom_rel": "신랑",
+    "account.groom_bank": "국민은행",
+    "account.groom_father": "김OO",
+    "account.groom_father_rel": "신랑 아버지",
+    "account.groom_father_bank": "신한은행",
+    "account.bride_name": "신민아",
+    "account.bride_rel": "신부",
+    "account.bride_bank": "우리은행",
+    "account.bride_father": "신OO",
+    "account.bride_father_rel": "신부 아버지",
+    "account.bride_father_bank": "하나은행",
+    "account.copy": "복사",
+    "account.copied": "복사됨",
   },
 };
 
@@ -164,6 +199,42 @@ const io = new IntersectionObserver(
   { threshold: 0.12 }
 );
 document.querySelectorAll(".section").forEach((s) => io.observe(s));
+
+// ============================================================
+// Copy account number to clipboard
+// ============================================================
+function showToast(text) {
+  let toast = document.getElementById("toast");
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "toast";
+    toast.className = "toast";
+    document.body.appendChild(toast);
+  }
+  toast.textContent = text;
+  toast.classList.add("show");
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(() => toast.classList.remove("show"), 1500);
+}
+
+document.querySelectorAll(".copy-btn").forEach((btn) => {
+  btn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const num = btn.dataset.copy;
+    try {
+      await navigator.clipboard.writeText(num);
+    } catch {
+      const ta = document.createElement("textarea");
+      ta.value = num;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+    }
+    showToast(I18N[currentLang]["account.copied"] + ": " + num);
+  });
+});
 
 // ============================================================
 // Initial language paint

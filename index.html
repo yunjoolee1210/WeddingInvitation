@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Noto+Serif+KR:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=3" />
 </head>
 <body>
   <button id="lang-toggle" class="lang-toggle" aria-label="Toggle language">
@@ -106,12 +106,84 @@
       <p class="venue-name" data-i18n="venue.name">The Grand Ballroom, Seoul Plaza Hotel</p>
       <p class="venue-address" data-i18n="venue.address">119 Sogong-ro, Jung-gu, Seoul</p>
       <p class="venue-hall" data-i18n="venue.hall">5F Crystal Hall</p>
+      <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Seoul+Plaza+Hotel" target="_blank" rel="noopener">
+        <span data-i18n="venue.map">View on Google Maps</span>
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+      </a>
     </section>
 
-    <!-- THANK YOU -->
-    <section class="section thanks-section">
+    <!-- ACCOUNT INFO -->
+    <section class="section account-section">
+      <h2 class="section-title" data-i18n="account.title">Wedding Gift</h2>
       <div class="ornament">&#10086;</div>
-      <p class="thanks" data-i18n="thanks.body">Thank you for being part of our story.</p>
+      <p class="account-intro" data-i18n="account.intro">Your presence is our greatest gift. If you wish to send your blessing in this way, we gratefully accept.</p>
+
+      <details class="account-group">
+        <summary>
+          <span data-i18n="account.groom_side">Groom's side</span>
+          <span class="chev" aria-hidden="true">&#9662;</span>
+        </summary>
+        <div class="account-row">
+          <div class="account-label">
+            <span data-i18n="account.groom_name">Kim Woo-bin</span>
+            <span class="account-rel" data-i18n="account.groom_rel">Groom</span>
+          </div>
+          <div class="account-num">
+            <span class="bank" data-i18n="account.groom_bank">Kookmin Bank</span>
+            <span class="num">123-456-789012</span>
+            <button class="copy-btn" data-copy="123-456-789012" aria-label="Copy account number">
+              <span data-i18n="account.copy">Copy</span>
+            </button>
+          </div>
+        </div>
+        <div class="account-row">
+          <div class="account-label">
+            <span data-i18n="account.groom_father">Mr. Kim</span>
+            <span class="account-rel" data-i18n="account.groom_father_rel">Father of the Groom</span>
+          </div>
+          <div class="account-num">
+            <span class="bank" data-i18n="account.groom_father_bank">Shinhan Bank</span>
+            <span class="num">110-000-000000</span>
+            <button class="copy-btn" data-copy="110-000-000000" aria-label="Copy account number">
+              <span data-i18n="account.copy">Copy</span>
+            </button>
+          </div>
+        </div>
+      </details>
+
+      <details class="account-group">
+        <summary>
+          <span data-i18n="account.bride_side">Bride's side</span>
+          <span class="chev" aria-hidden="true">&#9662;</span>
+        </summary>
+        <div class="account-row">
+          <div class="account-label">
+            <span data-i18n="account.bride_name">Shin Min-a</span>
+            <span class="account-rel" data-i18n="account.bride_rel">Bride</span>
+          </div>
+          <div class="account-num">
+            <span class="bank" data-i18n="account.bride_bank">Woori Bank</span>
+            <span class="num">1002-000-000000</span>
+            <button class="copy-btn" data-copy="1002-000-000000" aria-label="Copy account number">
+              <span data-i18n="account.copy">Copy</span>
+            </button>
+          </div>
+        </div>
+        <div class="account-row">
+          <div class="account-label">
+            <span data-i18n="account.bride_father">Mr. Shin</span>
+            <span class="account-rel" data-i18n="account.bride_father_rel">Father of the Bride</span>
+          </div>
+          <div class="account-num">
+            <span class="bank" data-i18n="account.bride_father_bank">Hana Bank</span>
+            <span class="num">333-000000-00000</span>
+            <button class="copy-btn" data-copy="333-000000-00000" aria-label="Copy account number">
+              <span data-i18n="account.copy">Copy</span>
+            </button>
+          </div>
+        </div>
+      </details>
+
       <p class="signoff">
         <span data-i18n="groom.name">Kim Woo-bin</span>
         <span class="amp">&amp;</span>
@@ -121,6 +193,6 @@
 
   </main>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>
