@@ -12,6 +12,7 @@ const WEDDING = {
     { src: "pictures/gallery1.jpg", wide: true },
     { src: "pictures/gallery2.jpg" },
     { src: "pictures/gallery3.jpg" },
+    { src: "pictures/gallery4.jpg", wide: true },
   ],
 };
 
